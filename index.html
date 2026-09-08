@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="es-PE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Encuesta de Clima Laboral · Basílica</title>
+<meta name="description" content="Encuesta de clima laboral de Basílica Panadería · Cafetería · Pastelería. 100% anónima y confidencial.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23c9974f'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%231f1209'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --espresso:#1c1108;
+    --espresso-2:#271609;
+    --espresso-3:#32200f;
+    --burgundy:#7c1f18;
+    --burgundy-dark:#591410;
+    --burgundy-light:#9c2c22;
+    --gold:#c9974f;
+    --gold-light:#e6cd9a;
+    --cream:#f7efe0;
+    --cream-dim:#d9c7a8;
+    --line:rgba(230,205,154,.18);
+    --shadow:0 20px 50px rgba(0,0,0,.35);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--espresso);
+    color:var(--cream);
+    font-family:'Poppins',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    margin:0;
+    color:var(--cream);
+  }
+  .script{
+    font-family:'Caveat',cursive;
+    color:var(--gold-light);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Poppins',sans-serif;
+    letter-spacing:.18em;
+    font-size:.72rem;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:120px 24px 80px;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 0%, rgba(124,31,24,.35), transparent 60%),
+      radial-gradient(ellipse 60% 45% at 85% 100%, rgba(201,151,79,.12), transparent 60%),
+      linear-gradient(180deg, var(--espresso) 0%, var(--espresso-2) 60%, var(--espresso) 100%);
+  }
+  .hero-glow{
+    position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 30%, rgba(201,151,79,.10), transparent 55%);
+    pointer-events:none;
+  }
+  .grain-svg{position:absolute;opacity:.5;pointer-events:none;}
+  .grain-svg.left{left:-60px;bottom:-40px;width:280px;transform:rotate(-8deg);animation:sway 9s ease-in-out infinite;}
+  .grain-svg.right{right:-70px;top:60px;width:260px;transform:rotate(14deg) scaleX(-1);animation:sway 11s ease-in-out infinite reverse;}
+  @keyframes sway{
+    0%,100%{transform:rotate(-8deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(-10px);}
+  }
+  .steam{position:absolute;bottom:0;border-radius:50%;filter:blur(18px);background:radial-gradient(circle, rgba(201,151,79,.18), transparent 70%);animation:rise 14s linear infinite;}
+  @keyframes rise{
+    0%{transform:translateY(0) scale(1);opacity:0;}
+    15%{opacity:.7;}
+    100%{transform:translateY(-620px) scale(1.6);opacity:0;}
+  }
+
+  .brandmark{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:clamp(2rem,6vw,3rem);
+    letter-spacing:.06em;
+    color:var(--gold-light);
+    text-shadow:0 2px 24px rgba(201,151,79,.25);
+    margin-bottom:6px;
+  }
+  .brandmark small{
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-weight:500;
+    font-size:.68rem;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--cream-dim);
+    margin-top:6px;
+  }
+  .hero h1{
+    font-size:clamp(1.9rem,4.6vw,3.4rem);
+    max-width:16ch;
+    margin:28px auto 18px;
+    line-height:1.15;
+  }
+  .hero .sub{
+    max-width:46ch;
+    margin:0 auto 30px;
+    color:var(--cream-dim);
+    font-size:clamp(.95rem,1.6vw,1.1rem);
+  }
+  .confidential-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(201,151,79,.1);
+    border:1px solid var(--line);
+    padding:10px 20px;
+    border-radius:999px;
+    font-size:.85rem;
+    font-weight:500;
+    color:var(--gold-light);
+    margin-bottom:34px;
+  }
+  .confidential-badge svg{width:16px;height:16px;flex:none;}
+
+  .btn{
+    appearance:none;border:none;cursor:pointer;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    padding:16px 34px;
+    border-radius:999px;
+    background:linear-gradient(135deg, var(--burgundy-light), var(--burgundy-dark));
+    color:var(--cream);
+    box-shadow:0 12px 30px rgba(124,31,24,.35);
+    transition:transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  }
+  .btn:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(124,31,24,.45);filter:brightness(1.08);}
+  .btn:active{transform:translateY(0);}
+  .btn.ghost{
+    background:transparent;
+    border:1px solid var(--line);
+    box-shadow:none;
+  }
+  .btn.ghost:hover{background:rgba(255,255,255,.05);}
+  .btn[disabled]{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none;}
+
+  .hero-meta{
+    margin-top:26px;
+    display:flex;flex-wrap:wrap;gap:18px;justify-content:center;
+    font-size:.78rem;color:var(--cream-dim);letter-spacing:.02em;
+  }
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px;}
+  .hero-meta svg{width:14px;height:14px;opacity:.75;}
+
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    color:var(--cream-dim);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;
+    animation:bob 2.2s ease-in-out infinite;
+  }
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:88px 0;position:relative;}
+  .section-alt{background:var(--espresso-2);}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .section-head{text-align:center;max-width:640px;margin:0 auto 46px;}
+  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.3rem);margin-top:14px;}
+  .section-head p{color:var(--cream-dim);margin-top:14px;font-size:.98rem;}
+
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px;}
+  @media (max-width:760px){.cards3{grid-template-columns:1fr;}}
+  .card{
+    background:linear-gradient(180deg, var(--espresso-3), var(--espresso-2));
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 26px;
+    text-align:left;
+  }
+  .card .icon{
+    width:42px;height:42px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(201,151,79,.12);color:var(--gold);
+    margin-bottom:18px;
+  }
+  .card .icon svg{width:22px;height:22px;}
+  .card h3{font-size:1.08rem;font-weight:700;margin-bottom:8px;color:var(--cream);}
+  .card p{color:var(--cream-dim);font-size:.92rem;margin:0;}
+
+  .confid-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:8px;}
+  @media (max-width:760px){.confid-grid{grid-template-columns:1fr;}}
+  .confid-box{
+    border-radius:var(--radius);
+    padding:28px 26px;
+    border:1px solid var(--line);
+  }
+  .confid-box.no{background:rgba(124,31,24,.08);}
+  .confid-box.yes{background:rgba(201,151,79,.08);}
+  .confid-box h3{font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:10px;color:var(--cream);}
+  .confid-box h3 svg{width:18px;height:18px;flex:none;}
+  .confid-box ul{margin:0;padding:0;list-style:none;}
+  .confid-box li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:.9rem;color:var(--cream-dim);margin-bottom:10px;
+  }
+  .confid-box li svg{width:15px;height:15px;flex:none;margin-top:3px;}
+  .confid-box.no li svg{color:var(--burgundy-light);}
+  .confid-box.yes li svg{color:var(--gold);}
+
+  /* ---------- FORM ---------- */
+  .form-shell{
+    max-width:640px;margin:0 auto;
+    background:linear-gradient(180deg, var(--espresso-3), var(--espresso-2));
+    border:1px solid var(--line);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .form-top{padding:26px 30px 0;}
+  .progress-label{
+    display:flex;justify-content:space-between;
+    font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--cream-dim);margin-bottom:10px;
+  }
+  .progress-track{height:5px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;}
+  .progress-fill{height:100%;width:16.6%;background:linear-gradient(90deg, var(--gold), var(--burgundy-light));transition:width .45s ease;border-radius:999px;}
+
+  .form-body{padding:34px 30px 30px;min-height:340px;position:relative;}
+  .step{display:none;animation:stepIn .45s ease;}
+  .step.active{display:block;}
+  @keyframes stepIn{from{opacity:0;transform:translateX(16px);}to{opacity:1;transform:translateX(0);}}
+
+  .step h3.q{
+    font-family:'Poppins',sans-serif;
+    font-weight:500;
+    font-size:1.05rem;
+    color:var(--cream);
+    margin:0 0 20px;
+    line-height:1.5;
+  }
+  .step-title{font-size:1.3rem;margin-bottom:6px;}
+  .step-hint{color:var(--cream-dim);font-size:.85rem;margin-bottom:24px;}
+
+  .sede-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:480px){.sede-grid{grid-template-columns:1fr;}}
+  .sede-card{
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.02);
+    border-radius:14px;
+    padding:22px 18px;
+    text-align:center;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .sede-card:hover{border-color:var(--gold);background:rgba(201,151,79,.06);}
+  .sede-card.selected{
+    border-color:var(--gold);
+    background:rgba(201,151,79,.14);
+    box-shadow:0 0 0 1px var(--gold) inset;
+  }
+  .sede-card .sede-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--cream);}
+  .sede-card .sede-sub{font-size:.72rem;color:var(--cream-dim);margin-top:4px;letter-spacing:.04em;}
+
+  .likert-block{margin-bottom:32px;}
+  .likert-block:last-child{margin-bottom:6px;}
+  .likert-row{display:flex;justify-content:space-between;gap:8px;}
+  .likert-opt{
+    flex:1;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    cursor:pointer;
+  }
+  .likert-opt input{position:absolute;opacity:0;pointer-events:none;}
+  .likert-dot{
+    width:38px;height:38px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:.85rem;font-weight:600;color:var(--cream-dim);
+    transition:all .18s ease;
+    background:rgba(255,255,255,.02);
+  }
+  .likert-opt:hover .likert-dot{border-color:var(--gold);color:var(--cream);}
+  .likert-opt input:checked + .likert-dot{
+    background:linear-gradient(135deg, var(--gold), var(--burgundy-light));
+    border-color:var(--gold);
+    color:var(--espresso);
+    box-shadow:0 6px 16px rgba(201,151,79,.35);
+    transform:scale(1.08);
+  }
+  .likert-caption{display:flex;justify-content:space-between;margin-top:8px;font-size:.66rem;color:var(--cream-dim);letter-spacing:.02em;}
+  .likert-caption span:last-child{text-align:right;}
+
+  .nps-grid{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:6px;}
+  .nps-opt{position:relative;}
+  .nps-opt input{position:absolute;opacity:0;pointer-events:none;}
+  .nps-dot{
+    width:40px;height:40px;border-radius:12px;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    font-size:.85rem;font-weight:600;color:var(--cream-dim);
+    cursor:pointer;transition:all .18s ease;
+    background:rgba(255,255,255,.02);
+  }
+  .nps-opt:hover .nps-dot{border-color:var(--gold);color:var(--cream);}
+  .nps-opt input:checked + .nps-dot{
+    background:linear-gradient(135deg, var(--gold), var(--burgundy-light));
+    border-color:var(--gold);color:var(--espresso);
+    box-shadow:0 6px 16px rgba(201,151,79,.35);
+    transform:scale(1.08);
+  }
+  .nps-caption{display:flex;justify-content:space-between;font-size:.72rem;color:var(--cream-dim);margin-top:6px;}
+
+  textarea{
+    width:100%;
+    background:rgba(255,255,255,.03);
+    border:1px solid var(--line);
+    border-radius:12px;
+    color:var(--cream);
+    font-family:'Poppins',sans-serif;
+    font-size:.92rem;
+    padding:14px 16px;
+    resize:vertical;
+    min-height:90px;
+  }
+  textarea:focus{outline:none;border-color:var(--gold);}
+  textarea::placeholder{color:rgba(217,199,168,.45);}
+  .open-block{margin-bottom:24px;}
+  .open-block label{display:block;font-size:.98rem;color:var(--cream);margin-bottom:10px;font-weight:500;}
+  .open-optional{font-size:.7rem;color:var(--cream-dim);font-weight:400;font-style:italic;}
+
+  .hp-field{position:absolute;left:-9999px;top:-9999px;opacity:0;height:0;width:0;overflow:hidden;}
+
+  .form-nav{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:0 30px 30px;
+  }
+  .form-nav .spacer{flex:1;}
+
+  .thanks{
+    text-align:center;padding:50px 20px 20px;
+  }
+  .thanks .check{
+    width:64px;height:64px;border-radius:50%;
+    margin:0 auto 22px;
+    display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle, rgba(201,151,79,.22), transparent 70%);
+    border:1px solid var(--gold);
+  }
+  .thanks .check svg{width:28px;height:28px;color:var(--gold);}
+  .thanks h3{font-size:1.5rem;margin-bottom:12px;}
+  .thanks p{color:var(--cream-dim);max-width:36ch;margin:0 auto;font-size:.94rem;}
+
+  .error-box{
+    display:none;
+    background:rgba(124,31,24,.18);
+    border:1px solid var(--burgundy-light);
+    color:var(--cream);
+    font-size:.85rem;
+    padding:12px 16px;
+    border-radius:10px;
+    margin-bottom:18px;
+  }
+  .error-box.show{display:block;}
+
+  footer{
+    padding:40px 24px 50px;
+    text-align:center;
+    color:var(--cream-dim);
+    font-size:.75rem;
+    border-top:1px solid var(--line);
+    background:var(--espresso);
+  }
+  footer .brandmark-small{
+    font-family:'Playfair Display',serif;
+    color:var(--gold-light);
+    font-weight:700;
+    font-size:.95rem;
+    margin-bottom:8px;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <svg class="grain-svg left" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60 220 C58 160 56 120 60 60" stroke="#c9974f" stroke-width="2" opacity=".5"/>
+    <g stroke="#c9974f" stroke-width="2" opacity=".5">
+      <ellipse cx="60" cy="55" rx="9" ry="16"/><ellipse cx="72" cy="70" rx="9" ry="16" transform="rotate(28 72 70)"/>
+      <ellipse cx="48" cy="70" rx="9" ry="16" transform="rotate(-28 48 70)"/><ellipse cx="60" cy="90" rx="9" ry="16"/>
+      <ellipse cx="75" cy="105" rx="9" ry="16" transform="rotate(28 75 105)"/><ellipse cx="45" cy="105" rx="9" ry="16" transform="rotate(-28 45 105)"/>
+      <ellipse cx="60" cy="125" rx="9" ry="16"/>
+    </g>
+  </svg>
+  <svg class="grain-svg right" viewBox="0 0 120 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M60 220 C58 160 56 120 60 60" stroke="#c9974f" stroke-width="2" opacity=".4"/>
+    <g stroke="#c9974f" stroke-width="2" opacity=".4">
+      <ellipse cx="60" cy="55" rx="9" ry="16"/><ellipse cx="72" cy="70" rx="9" ry="16" transform="rotate(28 72 70)"/>
+      <ellipse cx="48" cy="70" rx="9" ry="16" transform="rotate(-28 48 70)"/><ellipse cx="60" cy="90" rx="9" ry="16"/>
+      <ellipse cx="75" cy="105" rx="9" ry="16" transform="rotate(28 75 105)"/><ellipse cx="45" cy="105" rx="9" ry="16" transform="rotate(-28 45 105)"/>
+    </g>
+  </svg>
+  <div class="steam" style="left:38%;width:60px;height:60px;animation-delay:0s;"></div>
+  <div class="steam" style="left:52%;width:80px;height:80px;animation-delay:4s;"></div>
+  <div class="steam" style="left:46%;width:50px;height:50px;animation-delay:8s;"></div>
+
+  <div class="brandmark">BASÍLICA<small>Panadería · Cafetería · Pastelería</small></div>
+
+  <h1>Tu opinión ayuda a construir un <span class="script" style="font-size:1.15em;">mejor equipo</span></h1>
+  <p class="sub">Encuesta de Clima Laboral 2026 sobre el liderazgo de tu jefe o jefa directo/a en tu sede.</p>
+
+  <div class="confidential-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    100% anónima y confidencial
+  </div>
+  <div>
+    <a href="#form" class="btn" id="cta-start">Comenzar encuesta →</a>
+  </div>
+
+  <div class="hero-meta">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>5 minutos</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Sin registrarte</span>
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Gestionada por Grow Consultores</span>
+  </div>
+
+  <div class="scroll-cue">Desliza ↓</div>
+</section>
+
+<section class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Propósito</span>
+      <h2>¿Por qué te lo pedimos?</h2>
+      <p>Basílica trabaja junto a Grow Consultores para fortalecer el liderazgo en cada sede. Tu experiencia del día a día es la mejor fuente para identificar qué está funcionando bien y qué se puede mejorar en la forma en que se dirige a tu equipo.</p>
+    </div>
+    <div class="cards3">
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-8z"/></svg></div>
+        <h3>Mejorar el liderazgo</h3>
+        <p>Identificamos oportunidades concretas para que cada jefe/a lidere mejor a su equipo.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Fortalecer el equipo</h3>
+        <p>Un mejor clima laboral se nota en el servicio, en el ambiente y en el día a día de cada sede.</p>
+      </div>
+      <div class="card">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Tu voz cuenta</h3>
+        <p>Tus respuestas se analizan de forma agregada para tomar decisiones reales, no solo para archivar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-alt reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Confidencialidad</span>
+      <h2>Confidencialidad total</h2>
+      <p>Esta encuesta la gestiona Grow Consultores, como consultora externa — no Basílica directamente.</p>
+    </div>
+    <div class="confid-grid">
+      <div class="confid-box no">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></svg>No te pedimos</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Tu nombre</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Tu correo o teléfono</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Ningún dato que te identifique</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>Iniciar sesión con ninguna cuenta</li>
+        </ul>
+      </div>
+      <div class="confid-box yes">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Cómo se usan tus respuestas</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Grow Consultores las analiza de forma agregada, por sede</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tus respuestas individuales nunca se comparten con tu jefe/a directo/a</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Los resultados se presentan como tendencias, no como respuestas sueltas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="form" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Encuesta</span>
+      <h2>Empecemos</h2>
+      <p>Responde con sinceridad — no hay respuestas correctas o incorrectas.</p>
+    </div>
+
+    <form class="form-shell" id="survey-form" autocomplete="off">
+      <div class="form-top">
+        <div class="progress-label"><span id="progress-text">Paso 1 de 6</span><span id="progress-pct">17%</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+
+      <div class="form-body">
+        <div class="error-box" id="error-box">Por favor completa todas las preguntas de este paso antes de continuar.</div>
+
+        <!-- STEP 1: SEDE -->
+        <div class="step active" data-step="0">
+          <h3 class="step-title">¿En qué sede trabajas?</h3>
+          <p class="step-hint">Elige la sede donde trabajas la mayor parte de tu turno.</p>
+          <div class="sede-grid" id="sede-grid">
+            <div class="sede-card" data-value="Cafetería B1"><div class="sede-name">B1</div><div class="sede-sub">Cafetería</div></div>
+            <div class="sede-card" data-value="Cafetería B2"><div class="sede-name">B2</div><div class="sede-sub">Cafetería</div></div>
+            <div class="sede-card" data-value="Cafetería B3"><div class="sede-name">B3</div><div class="sede-sub">Cafetería</div></div>
+            <div class="sede-card" data-value="Hotel"><div class="sede-name">Hotel</div><div class="sede-sub">Sede Hotel</div></div>
+          </div>
+        </div>
+
+        <!-- STEP 2: LIKERT GROUP A (q1-q4) -->
+        <div class="step" data-step="1">
+          <p class="step-hint" style="margin-bottom:26px;">Para cada frase, elige qué tan de acuerdo estás. 1 = Totalmente en desacuerdo · 5 = Totalmente de acuerdo.</p>
+          <div class="likert-block" data-q="q1">
+            <h3 class="q">Mi líder me da retroalimentación útil sobre mi desempeño, no solo cuando algo sale mal</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q2">
+            <h3 class="q">Mi líder reconoce cuando hago bien mi trabajo</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q3">
+            <h3 class="q">Mi líder distribuye las tareas y los turnos de forma justa entre el equipo</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q4">
+            <h3 class="q">Mi líder está disponible cuando necesito su apoyo para resolver un problema</h3>
+            <div class="likert-row"></div>
+          </div>
+        </div>
+
+        <!-- STEP 3: LIKERT GROUP B (q5-q8) -->
+        <div class="step" data-step="2">
+          <div class="likert-block" data-q="q5">
+            <h3 class="q">Mi líder escucha mis ideas o preocupaciones y las toma en cuenta</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q6">
+            <h3 class="q">Mi líder maneja los conflictos o desacuerdos del equipo de forma justa</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q7">
+            <h3 class="q">Mi líder me trata con respeto</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q8">
+            <h3 class="q">Mi líder se preocupa por mi desarrollo y aprendizaje en el puesto</h3>
+            <div class="likert-row"></div>
+          </div>
+        </div>
+
+        <!-- STEP 4: LIKERT GROUP C (q9-q12) -->
+        <div class="step" data-step="3">
+          <div class="likert-block" data-q="q9">
+            <h3 class="q">Confío en las decisiones que toma mi líder</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q10">
+            <h3 class="q">Mi líder da el ejemplo con su propio compromiso y desempeño</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q11">
+            <h3 class="q">En general, el ambiente de trabajo en mi sede es bueno</h3>
+            <div class="likert-row"></div>
+          </div>
+          <div class="likert-block" data-q="q12">
+            <h3 class="q">Mi líder comunica con claridad las metas y lo que se espera de mí en cada turno</h3>
+            <div class="likert-row"></div>
+          </div>
+        </div>
+
+        <!-- STEP 5: NPS -->
+        <div class="step" data-step="4">
+          <h3 class="q" style="margin-bottom:24px;">En una escala de 0 a 10, ¿qué tan probable es que recomiendes a alguien trabajar bajo el liderazgo de tu jefe/a directo/a?</h3>
+          <div class="nps-grid" id="nps-grid"></div>
+          <div class="nps-caption"><span>Nada probable</span><span>Totalmente probable</span></div>
+        </div>
+
+        <!-- STEP 6: OPEN QUESTIONS -->
+        <div class="step" data-step="5">
+          <div class="open-block">
+            <label>¿Qué es lo que más valoras del liderazgo de tu jefe/a directo/a? <span class="open-optional">(opcional)</span></label>
+            <textarea id="open1" maxlength="600" placeholder="Escribe aquí..."></textarea>
+          </div>
+          <div class="open-block">
+            <label>Si pudieras cambiar UNA cosa en la forma en que tu líder dirige al equipo, ¿cuál sería? <span class="open-optional">(opcional)</span></label>
+            <textarea id="open2" maxlength="600" placeholder="Escribe aquí..."></textarea>
+          </div>
+          <input type="text" class="hp-field" id="hp" name="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        </div>
+
+        <!-- THANK YOU -->
+        <div class="step" data-step="thanks">
+          <div class="thanks">
+            <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+            <h3>¡Gracias por tu tiempo!</h3>
+            <p>Tu respuesta fue enviada de forma anónima. Ayuda de verdad a mejorar el día a día en tu sede.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-nav" id="form-nav">
+        <button type="button" class="btn ghost" id="btn-back">← Atrás</button>
+        <div class="spacer"></div>
+        <button type="button" class="btn" id="btn-next">Siguiente →</button>
+        <button type="button" class="btn" id="btn-submit" style="display:none;">Enviar respuestas</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="brandmark-small">BASÍLICA</div>
+  <div>Encuesta de Clima Laboral · Gestionada de forma externa y confidencial por Grow Consultores</div>
+</footer>
+
+<script>
+(function(){
+  var WEBAPP_URL = "https://script.google.com/macros/s/AKfycbzG1doSGsMtoH0p_9bIUcsGgwRv67o6_9wXzpDu-bSlDMkeDmhoDZFarcg7r_cJYwRz/exec";
+
+  var LIKERT_LABELS = ['1','2','3','4','5'];
+
+  // Build likert rows
+  document.querySelectorAll('.likert-block').forEach(function(block){
+    var q = block.getAttribute('data-q');
+    var row = block.querySelector('.likert-row');
+    LIKERT_LABELS.forEach(function(val){
+      var label = document.createElement('label');
+      label.className = 'likert-opt';
+      label.innerHTML = '<input type="radio" name="'+q+'" value="'+val+'"><span class="likert-dot">'+val+'</span>';
+      row.appendChild(label);
+    });
+    var cap = document.createElement('div');
+    cap.className = 'likert-caption';
+    cap.innerHTML = '<span>Totalmente en desacuerdo</span><span>Totalmente de acuerdo</span>';
+    block.appendChild(cap);
+  });
+
+  // Build NPS grid
+  var npsGrid = document.getElementById('nps-grid');
+  for(var i=0;i<=10;i++){
+    var wrap = document.createElement('label');
+    wrap.className = 'nps-opt';
+    wrap.innerHTML = '<input type="radio" name="nps" value="'+i+'"><span class="nps-dot">'+i+'</span>';
+    npsGrid.appendChild(wrap);
+  }
+
+  // Sede selection
+  var sedeValue = null;
+  document.querySelectorAll('.sede-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      document.querySelectorAll('.sede-card').forEach(function(c){c.classList.remove('selected');});
+      card.classList.add('selected');
+      sedeValue = card.getAttribute('data-value');
+      hideError();
+    });
+  });
+
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
+  var contentSteps = steps.filter(function(s){return s.getAttribute('data-step') !== 'thanks';});
+  var totalSteps = contentSteps.length;
+  var current = 0;
+
+  var progressText = document.getElementById('progress-text');
+  var progressPct = document.getElementById('progress-pct');
+  var progressFill = document.getElementById('progress-fill');
+  var btnBack = document.getElementById('btn-back');
+  var btnNext = document.getElementById('btn-next');
+  var btnSubmit = document.getElementById('btn-submit');
+  var errorBox = document.getElementById('error-box');
+  var formNav = document.getElementById('form-nav');
+
+  function hideError(){ errorBox.classList.remove('show'); }
+  function showError(){ errorBox.classList.add('show'); }
+
+  function renderStep(){
+    steps.forEach(function(s){ s.classList.remove('active'); });
+    contentSteps[current].classList.add('active');
+    hideError();
+
+    var pct = Math.round(((current+1)/totalSteps)*100);
+    progressText.textContent = 'Paso ' + (current+1) + ' de ' + totalSteps;
+    progressPct.textContent = pct + '%';
+    progressFill.style.width = pct + '%';
+
+    btnBack.style.visibility = current === 0 ? 'hidden' : 'visible';
+    btnSubmit.style.display = current === totalSteps - 1 ? 'inline-flex' : 'none';
+    btnNext.style.display = current === totalSteps - 1 ? 'none' : 'inline-flex';
+  }
+
+  function validateStep(){
+    var stepEl = contentSteps[current];
+    var stepIndex = stepEl.getAttribute('data-step');
+
+    if(stepIndex === '0'){
+      return !!sedeValue;
+    }
+    var likertBlocks = stepEl.querySelectorAll('.likert-block');
+    if(likertBlocks.length){
+      var ok = true;
+      likertBlocks.forEach(function(b){
+        var q = b.getAttribute('data-q');
+        if(!stepEl.querySelector('input[name="'+q+'"]:checked')) ok = false;
+      });
+      return ok;
+    }
+    if(stepEl.querySelector('#nps-grid')){
+      return !!stepEl.querySelector('input[name="nps"]:checked');
+    }
+    return true; // open questions step is optional
+  }
+
+  btnNext.addEventListener('click', function(){
+    if(!validateStep()){ showError(); return; }
+    if(current < totalSteps - 1){ current++; renderStep(); scrollToForm(); }
+  });
+  btnBack.addEventListener('click', function(){
+    if(current > 0){ current--; renderStep(); scrollToForm(); }
+  });
+
+  function scrollToForm(){
+    document.getElementById('form').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+  document.getElementById('cta-start').addEventListener('click', function(e){
+    // allow default anchor jump
+  });
+
+  function getVal(name){
+    var el = document.querySelector('input[name="'+name+'"]:checked');
+    return el ? el.value : null;
+  }
+
+  btnSubmit.addEventListener('click', function(){
+    if(document.getElementById('hp').value){
+      // honeypot filled -> silently show thanks, discard
+      showThanks();
+      return;
+    }
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Enviando...';
+
+    var payload = {
+      hp: document.getElementById('hp').value || '',
+      sede: sedeValue,
+      q1: getVal('q1'), q2: getVal('q2'), q3: getVal('q3'), q4: getVal('q4'),
+      q5: getVal('q5'), q6: getVal('q6'), q7: getVal('q7'), q8: getVal('q8'),
+      q9: getVal('q9'), q10: getVal('q10'), q11: getVal('q11'), q12: getVal('q12'),
+      nps: getVal('nps'),
+      open1: document.getElementById('open1').value || '',
+      open2: document.getElementById('open2').value || ''
+    };
+
+    fetch(WEBAPP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    }).then(function(){
+      showThanks();
+    }).catch(function(){
+      showThanks();
+    });
+  });
+
+  function showThanks(){
+    steps.forEach(function(s){ s.classList.remove('active'); });
+    document.querySelector('[data-step="thanks"]').classList.add('active');
+    formNav.style.display = 'none';
+    document.querySelector('.form-top').style.display = 'none';
+    scrollToForm();
+  }
+
+  renderStep();
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:.12});
+  revealEls.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
