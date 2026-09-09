@@ -282,6 +282,11 @@
   .sede-card .sede-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--espresso);}
   .sede-card .sede-sub{font-size:.72rem;color:var(--cream-dim);margin-top:4px;letter-spacing:.04em;}
 
+  .lider-confirm{display:none;margin-top:16px;padding:14px 18px;border:1px solid var(--line);border-radius:12px;background:rgba(201,151,79,.10);text-align:center;}
+  .lider-confirm.show{display:block;}
+  .lider-confirm .lider-label{display:block;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--cream-dim);margin-bottom:4px;}
+  .lider-confirm .lider-name{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--espresso);}
+
   .likert-block{margin-bottom:32px;}
   .likert-block:last-child{margin-bottom:6px;}
   .likert-row{display:flex;justify-content:space-between;gap:8px;}
@@ -531,6 +536,10 @@
             <div class="sede-card" data-value="Producción"><div class="sede-name">Producción</div><div class="sede-sub">Centro de Producción</div></div>
             <div class="sede-card" data-value="Almacén"><div class="sede-name">Almacén</div><div class="sede-sub">Almacén</div></div>
           </div>
+          <div class="lider-confirm" id="lider-confirm">
+            <span class="lider-label">Vas a evaluar el liderazgo de</span>
+            <span class="lider-name" id="lider-name"></span>
+          </div>
         </div>
 
         <!-- STEP 2: LIKERT GROUP A (q1-q4) -->
@@ -672,11 +681,28 @@
 
   // Sede selection
   var sedeValue = null;
+  var lideresPorSede = {
+    'Cafetería B1': 'Alex Pacheres',
+    'Cafetería B2': 'Denif Mamani',
+    'Cafetería B3': 'Jhonatan Huacac (con apoyo de Jackeline Yamoca)',
+    'Hotel': 'Jackeline Yamoca',
+    'Producción': 'Fernando Quintanilla',
+    'Almacén': 'Anali Huillca'
+  };
+  var liderConfirmEl = document.getElementById('lider-confirm');
+  var liderNameEl = document.getElementById('lider-name');
   document.querySelectorAll('.sede-card').forEach(function(card){
     card.addEventListener('click', function(){
       document.querySelectorAll('.sede-card').forEach(function(c){c.classList.remove('selected');});
       card.classList.add('selected');
       sedeValue = card.getAttribute('data-value');
+      var nombreLider = lideresPorSede[sedeValue];
+      if(nombreLider){
+        liderNameEl.textContent = nombreLider;
+        liderConfirmEl.classList.add('show');
+      } else {
+        liderConfirmEl.classList.remove('show');
+      }
       hideError();
     });
   });
